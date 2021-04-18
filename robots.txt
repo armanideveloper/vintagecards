@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /ads/
+Disallow: /my-collection/
+Disallow: /my-account/
+Disallow: /sign-up/
+Disallow: /unsubscribe/
+Disallow: /vcpseals/
+Disallow: /my-want-list/
+Disallow: /site-logout
+Disallow: /signup

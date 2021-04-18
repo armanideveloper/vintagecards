@@ -1,0 +1,192 @@
+Highcharts.setOptions({
+	colors: ["#4A4A49"],
+	chart: {
+		backgroundColor: '#fff',
+		borderWidth: 0,
+		borderRadius: 0,
+		plotBackgroundColor: null,
+		plotShadow: false,
+		plotBorderWidth: 0,
+		animation: true
+	},
+	xAxis: {
+		gridLineWidth: 0,
+		lineColor: '#888888',
+		tickColor: '#CACACA',
+		gridLineColor: 'rgba(88, 57, 57, .5)',
+		minorGridLineColor: 'rgba(104, 57, 29, .05)',
+		labels: {
+			style: {
+				color: '#585858',
+			}
+		},
+		title: {
+			style: {
+				color: '#fff',
+			}
+		}
+	},
+
+
+	yAxis: {
+		alternateGridColor: null,
+		lineColor: '#888888',  //main left side chart line
+		tickColor: '#CACACA',   //main left site tick color
+
+		minorTickInterval: 'auto',
+		gridLineColor: '#C1C1C1',
+		minorGridLineColor: 'rgba(104, 57, 29, .05)',
+		lineWidth: 1,
+		tickWidth: 1,
+		labels: {
+			style: {
+				color: '#585858'
+			}
+		},
+		title: {
+			style: {
+				color: '#fff'
+			}
+		}
+	},
+
+
+	//price tooltip - hover
+	tooltip: {
+		backgroundColor: {
+			linearGradient: [0, 0, 0, 50],
+			stops: [
+				[0, 'rgba(255, 255, 255, .95)'],
+				[1, 'rgba(230, 230, 230, .95)']
+			]
+		},
+		borderWidth: 0,
+		style: {
+			color: '#585858' //tooltip color
+		}
+	},
+
+	// range selector + buttons
+	rangeSelector: {
+		buttonTheme: {
+			fill: 'rgba(255, 255, 255, 0.1)',
+			stroke: '#585858',
+			style: {
+				color: '#585858'
+			},
+			states: {
+				hover: {
+					fill: '#666666',
+					stroke: '#585858',
+					style: {
+						color: 'white'
+					}
+				},
+				select: {
+					fill: '#585858',
+					stroke: '#585858',
+					style: {
+						color: '#fff'
+					}
+				}
+			}
+		},
+		inputStyle: {
+			backgroundColor: 'rgba(88,155,59,0.98)',
+			color: '#585858'
+		},
+		labelStyle: {
+			color: '#585858'
+		},
+		buttons : [{
+			type : 'all',
+			count : 1,
+			text : 'All'
+		}, {
+			type : 'year',
+			count : 1,
+			text : '1y'
+		}, {
+			type : 'month',
+			count : 6,
+			text : '6m'
+		}, {
+			type : 'month',
+			count : 3,
+			text : '3m'
+		}, {
+			type : 'month',
+			count : 1,
+			text : '1m'
+		}],
+		selected: 1
+	},
+
+	navigator: {
+
+		handles: {
+			backgroundColor: '#868E96',
+			borderColor: '#585858'
+		},
+		outlineColor: '#585858',
+		maskFill: 'rgba(134, 142, 150, 0.2)',
+		series: {
+			color: '#68391d',
+			lineColor: '#4A4A49' //line color in zoomer
+		},
+		xAxis: {
+			type: 'datetime',
+			dateTimeLabelFormats: {
+				day: '%Y',
+				week: '%Y',
+				month: '%Y',
+				year: '%Y',
+			},
+			labels: {
+				style: {
+					color: '#585858'
+				}
+			}
+
+		}
+	},
+
+	plotOptions: {
+		animation: false,
+		line: {
+			animation: false,
+			dataLabels: {
+				color: '#CCC'
+			},
+			marker: {
+				lineColor: '#333'
+			}
+		},
+		spline: {
+			marker: {
+				lineColor: '#333'
+			}
+		},
+		scatter: {
+			marker: {
+				lineColor: '#333'
+			}
+		},
+		candlestick: {
+			lineColor: 'white'
+		}
+	},
+
+	toolbar: {
+		itemStyle: {
+			color: '#585858'
+		}
+	},
+
+	// special colors for some of the demo examples
+	legendBackgroundColor: 'rgba(48, 48, 48, 0.8)',
+	legendBackgroundColorSolid: 'rgb(70, 70, 70)',
+	dataLabelsColor: '#444',
+	textColor: '#E0E0E0',
+	maskColor: 'rgba(255,255,255,1)'
+});

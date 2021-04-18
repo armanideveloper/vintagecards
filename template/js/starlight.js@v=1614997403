@@ -1,0 +1,1644 @@
+/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-flexbox-flexboxlegacy-flexboxtweener-flexwrap-setclasses !*/
+!function(e,n,t){function r(e,n){return typeof e===n}function o(){var e,n,t,o,s,i,l;for(var a in C)if(C.hasOwnProperty(a)){if(e=[],n=C[a],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(o=r(n.fn,"function")?n.fn():n.fn,s=0;s<e.length;s++)i=e[s],l=i.split("."),1===l.length?Modernizr[l[0]]=o:(!Modernizr[l[0]]||Modernizr[l[0]]instanceof Boolean||(Modernizr[l[0]]=new Boolean(Modernizr[l[0]])),Modernizr[l[0]][l[1]]=o),x.push((o?"":"no-")+l.join("-"))}}function s(e){var n=S.className,t=Modernizr._config.classPrefix||"";if(_&&(n=n.baseVal),Modernizr._config.enableJSClass){var r=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(r,"$1"+t+"js$2")}Modernizr._config.enableClasses&&(n+=" "+t+e.join(" "+t),_?S.className.baseVal=n:S.className=n)}function i(e,n){return!!~(""+e).indexOf(n)}function l(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):_?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function a(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function f(e,n){return function(){return e.apply(n,arguments)}}function u(e,n,t){var o;for(var s in e)if(e[s]in n)return t===!1?e[s]:(o=n[e[s]],r(o,"function")?f(o,t||n):o);return!1}function d(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function c(n,t,r){var o;if("getComputedStyle"in e){o=getComputedStyle.call(e,n,t);var s=e.console;if(null!==o)r&&(o=o.getPropertyValue(r));else if(s){var i=s.error?"error":"log";s[i].call(s,"getComputedStyle returning null, its possible modernizr test results are inaccurate")}}else o=!t&&n.currentStyle&&n.currentStyle[r];return o}function p(){var e=n.body;return e||(e=l(_?"svg":"body"),e.fake=!0),e}function m(e,t,r,o){var s,i,a,f,u="modernizr",d=l("div"),c=p();if(parseInt(r,10))for(;r--;)a=l("div"),a.id=o?o[r]:u+(r+1),d.appendChild(a);return s=l("style"),s.type="text/css",s.id="s"+u,(c.fake?c:d).appendChild(s),c.appendChild(d),s.styleSheet?s.styleSheet.cssText=e:s.appendChild(n.createTextNode(e)),d.id=u,c.fake&&(c.style.background="",c.style.overflow="hidden",f=S.style.overflow,S.style.overflow="hidden",S.appendChild(c)),i=t(d,e),c.fake?(c.parentNode.removeChild(c),S.style.overflow=f,S.offsetHeight):d.parentNode.removeChild(d),!!i}function y(n,r){var o=n.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;)if(e.CSS.supports(d(n[o]),r))return!0;return!1}if("CSSSupportsRule"in e){for(var s=[];o--;)s.push("("+d(n[o])+":"+r+")");return s=s.join(" or "),m("@supports ("+s+") { #modernizr { position: absolute; } }",function(e){return"absolute"==c(e,null,"position")})}return t}function g(e,n,o,s){function f(){d&&(delete E.style,delete E.modElem)}if(s=r(s,"undefined")?!1:s,!r(o,"undefined")){var u=y(e,o);if(!r(u,"undefined"))return u}for(var d,c,p,m,g,v=["modernizr","tspan","samp"];!E.style&&v.length;)d=!0,E.modElem=l(v.shift()),E.style=E.modElem.style;for(p=e.length,c=0;p>c;c++)if(m=e[c],g=E.style[m],i(m,"-")&&(m=a(m)),E.style[m]!==t){if(s||r(o,"undefined"))return f(),"pfx"==n?m:!0;try{E.style[m]=o}catch(h){}if(E.style[m]!=g)return f(),"pfx"==n?m:!0}return f(),!1}function v(e,n,t,o,s){var i=e.charAt(0).toUpperCase()+e.slice(1),l=(e+" "+P.join(i+" ")+i).split(" ");return r(n,"string")||r(n,"undefined")?g(l,n,o,s):(l=(e+" "+T.join(i+" ")+i).split(" "),u(l,n,t))}function h(e,n,r){return v(e,t,t,n,r)}var x=[],C=[],w={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){C.push({name:e,fn:n,options:t})},addAsyncTest:function(e){C.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=w,Modernizr=new Modernizr;var S=n.documentElement,_="svg"===S.nodeName.toLowerCase(),b="Moz O ms Webkit",P=w._config.usePrefixes?b.split(" "):[];w._cssomPrefixes=P;var T=w._config.usePrefixes?b.toLowerCase().split(" "):[];w._domPrefixes=T;var z={elem:l("modernizr")};Modernizr._q.push(function(){delete z.elem});var E={style:z.elem.style};Modernizr._q.unshift(function(){delete E.style}),w.testAllProps=v,w.testAllProps=h,Modernizr.addTest("flexbox",h("flexBasis","1px",!0)),Modernizr.addTest("flexboxlegacy",h("boxDirection","reverse",!0)),Modernizr.addTest("flexboxtweener",h("flexAlign","end",!0)),Modernizr.addTest("flexwrap",h("flexWrap","wrap",!0)),o(),s(x),delete w.addTest,delete w.addAsyncTest;for(var N=0;N<Modernizr._q.length;N++)Modernizr._q[N]();e.Modernizr=Modernizr}(window,document);
+
+/*!
+ FixedHeader 3.1.5
+ ©2009-2018 SpryMedia Ltd - datatables.net/license
+*/
+(function(d){"function"===typeof define&&define.amd?define(["jquery","datatables.net"],function(g){return d(g,window,document)}):"object"===typeof exports?module.exports=function(g,i){g||(g=window);if(!i||!i.fn.dataTable)i=require("datatables.net")(g,i).$;return d(i,g,g.document)}:d(jQuery,window,document)})(function(d,g,i,k){var j=d.fn.dataTable,l=0,h=function(a,b){if(!(this instanceof h))throw"FixedHeader must be initialised with the 'new' keyword.";!0===b&&(b={});a=new j.Api(a);this.c=d.extend(!0,
+	{},h.defaults,b);this.s={dt:a,position:{theadTop:0,tbodyTop:0,tfootTop:0,tfootBottom:0,width:0,left:0,tfootHeight:0,theadHeight:0,windowHeight:d(g).height(),visible:!0},headerMode:null,footerMode:null,autoWidth:a.settings()[0].oFeatures.bAutoWidth,namespace:".dtfc"+l++,scrollLeft:{header:-1,footer:-1},enable:!0};this.dom={floatingHeader:null,thead:d(a.table().header()),tbody:d(a.table().body()),tfoot:d(a.table().footer()),header:{host:null,floating:null,placeholder:null},footer:{host:null,floating:null,
+		placeholder:null}};this.dom.header.host=this.dom.thead.parent();this.dom.footer.host=this.dom.tfoot.parent();var e=a.settings()[0];if(e._fixedHeader)throw"FixedHeader already initialised on table "+e.nTable.id;e._fixedHeader=this;this._constructor()};d.extend(h.prototype,{enable:function(a){this.s.enable=a;this.c.header&&this._modeChange("in-place","header",!0);this.c.footer&&this.dom.tfoot.length&&this._modeChange("in-place","footer",!0);this.update()},headerOffset:function(a){a!==k&&(this.c.headerOffset=
+		a,this.update());return this.c.headerOffset},footerOffset:function(a){a!==k&&(this.c.footerOffset=a,this.update());return this.c.footerOffset},update:function(){this._positions();this._scroll(!0)},_constructor:function(){var a=this,b=this.s.dt;d(g).on("scroll"+this.s.namespace,function(){a._scroll()}).on("resize"+this.s.namespace,j.util.throttle(function(){a.s.position.windowHeight=d(g).height();a.update()},50));var e=d(".fh-fixedHeader");!this.c.headerOffset&&e.length&&(this.c.headerOffset=e.outerHeight());
+		e=d(".fh-fixedFooter");!this.c.footerOffset&&e.length&&(this.c.footerOffset=e.outerHeight());b.on("column-reorder.dt.dtfc column-visibility.dt.dtfc draw.dt.dtfc column-sizing.dt.dtfc responsive-display.dt.dtfc",function(){a.update()});b.on("destroy.dtfc",function(){a.c.header&&a._modeChange("in-place","header",true);a.c.footer&&a.dom.tfoot.length&&a._modeChange("in-place","footer",true);b.off(".dtfc");d(g).off(a.s.namespace)});this._positions();this._scroll()},_clone:function(a,b){var e=this.s.dt,
+		c=this.dom[a],f="header"===a?this.dom.thead:this.dom.tfoot;!b&&c.floating?c.floating.removeClass("fixedHeader-floating fixedHeader-locked"):(c.floating&&(c.placeholder.remove(),this._unsize(a),c.floating.children().detach(),c.floating.remove()),c.floating=d(e.table().node().cloneNode(!1)).css("table-layout","fixed").attr("aria-hidden","true").removeAttr("id").append(f).appendTo("body"),c.placeholder=f.clone(!1),c.placeholder.find("*[id]").removeAttr("id"),c.host.prepend(c.placeholder),this._matchWidths(c.placeholder,
+		c.floating))},_matchWidths:function(a,b){var e=function(b){return d(b,a).map(function(){return d(this).width()}).toArray()},c=function(a,c){d(a,b).each(function(a){d(this).css({width:c[a],minWidth:c[a]})})},f=e("th"),e=e("td");c("th",f);c("td",e)},_unsize:function(a){var b=this.dom[a].floating;b&&("footer"===a||"header"===a&&!this.s.autoWidth)?d("th, td",b).css({width:"",minWidth:""}):b&&"header"===a&&d("th, td",b).css("min-width","")},_horizontal:function(a,b){var e=this.dom[a],c=this.s.position,
+		d=this.s.scrollLeft;e.floating&&d[a]!==b&&(e.floating.css("left",c.left-b),d[a]=b)},_modeChange:function(a,b,e){var c=this.dom[b],f=this.s.position,g=this.dom["footer"===b?"tfoot":"thead"],h=d.contains(g[0],i.activeElement)?i.activeElement:null;h&&h.blur();if("in-place"===a){if(c.placeholder&&(c.placeholder.remove(),c.placeholder=null),this._unsize(b),"header"===b?c.host.prepend(g):c.host.append(g),c.floating)c.floating.remove(),c.floating=null}else"in"===a?(this._clone(b,e),c.floating.addClass("fixedHeader-floating").css("header"===
+	b?"top":"bottom",this.c[b+"Offset"]).css("left",f.left+"px").css("width",f.width+"px"),"footer"===b&&c.floating.css("top","")):"below"===a?(this._clone(b,e),c.floating.addClass("fixedHeader-locked").css("top",f.tfootTop-f.theadHeight).css("left",f.left+"px").css("width",f.width+"px")):"above"===a&&(this._clone(b,e),c.floating.addClass("fixedHeader-locked").css("top",f.tbodyTop).css("left",f.left+"px").css("width",f.width+"px"));h&&h!==i.activeElement&&setTimeout(function(){h.focus()},10);this.s.scrollLeft.header=
+		-1;this.s.scrollLeft.footer=-1;this.s[b+"Mode"]=a},_positions:function(){var a=this.s.dt.table(),b=this.s.position,e=this.dom,a=d(a.node()),c=a.children("thead"),f=a.children("tfoot"),e=e.tbody;b.visible=a.is(":visible");b.width=a.outerWidth();b.left=a.offset().left;b.theadTop=c.offset().top;b.tbodyTop=e.offset().top;b.theadHeight=b.tbodyTop-b.theadTop;f.length?(b.tfootTop=f.offset().top,b.tfootBottom=b.tfootTop+f.outerHeight(),b.tfootHeight=b.tfootBottom-b.tfootTop):(b.tfootTop=b.tbodyTop+e.outerHeight(),
+		b.tfootBottom=b.tfootTop,b.tfootHeight=b.tfootTop)},_scroll:function(a){var b=d(i).scrollTop(),e=d(i).scrollLeft(),c=this.s.position,f;if(this.s.enable&&(this.c.header&&(f=!c.visible||b<=c.theadTop-this.c.headerOffset?"in-place":b<=c.tfootTop-c.theadHeight-this.c.headerOffset?"in":"below",(a||f!==this.s.headerMode)&&this._modeChange(f,"header",a),this._horizontal("header",e)),this.c.footer&&this.dom.tfoot.length))b=!c.visible||b+c.windowHeight>=c.tfootBottom+this.c.footerOffset?"in-place":c.windowHeight+
+	b>c.tbodyTop+c.tfootHeight+this.c.footerOffset?"in":"above",(a||b!==this.s.footerMode)&&this._modeChange(b,"footer",a),this._horizontal("footer",e)}});h.version="3.1.5";h.defaults={header:!0,footer:!1,headerOffset:0,footerOffset:0};d.fn.dataTable.FixedHeader=h;d.fn.DataTable.FixedHeader=h;d(i).on("init.dt.dtfh",function(a,b){if("dt"===a.namespace){var e=b.oInit.fixedHeader,c=j.defaults.fixedHeader;if((e||c)&&!b._fixedHeader)c=d.extend({},c,e),!1!==e&&new h(b,c)}});j.Api.register("fixedHeader()",function(){});
+	j.Api.register("fixedHeader.adjust()",function(){return this.iterator("table",function(a){(a=a._fixedHeader)&&a.update()})});j.Api.register("fixedHeader.enable()",function(a){return this.iterator("table",function(b){b=b._fixedHeader;a=a!==k?a:!0;b&&a!==b.s.enable&&b.enable(a)})});j.Api.register("fixedHeader.disable()",function(){return this.iterator("table",function(a){(a=a._fixedHeader)&&a.s.enable&&a.enable(!1)})});d.each(["header","footer"],function(a,b){j.Api.register("fixedHeader."+b+"Offset()",
+		function(a){var c=this.context;return a===k?c.length&&c[0]._fixedHeader?c[0]._fixedHeader[b+"Offset"]():k:this.iterator("table",function(c){if(c=c._fixedHeader)c[b+"Offset"](a)})})});return h});
+
+var isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
+jQuery(document).ready(function() {
+    if (isSafari) {
+		jQuery('html').addClass('safari-browser');
+    }
+});
+
+function fillSearch(index) {
+	if(localStorage.getItem('recent_search') != null) {
+		var storedData = JSON.parse(localStorage.getItem('recent_search'));
+		$('#main-search-field').val(storedData[index]).focus();
+	}
+}
+
+function recalculateSearches() {
+	if(localStorage.getItem('recent_search')) {
+		var storedData = JSON.parse(localStorage.getItem('recent_search'));
+		if(storedData.length > 0) {
+			var html = '';
+			storedData.reverse();
+			storedData.forEach(function(item, index){
+				html += '<tr>';
+				html += '<td><a onclick="fillSearch('+ index +')" href="#">'+ item +'</a></td>';
+				html += '<td class="text-right"><i data-index="'+ index +'" onClick="deleteSearch('+ index +')" class="delete fa fa-times-circle" aria-hidden="true"></i></td>';
+				html += '</tr>';
+			});
+			$('table.searches').html(html);
+			$('.main-search .search-history').fadeIn('slow');
+		}
+	}
+}
+
+function manageSearches(newstring) {
+	if(localStorage.getItem('recent_search') == null) {
+		localStorage.setItem('recent_search', JSON.stringify([newstring]));
+	} else {
+		var storedData = JSON.parse(localStorage.getItem('recent_search'));
+		storedData.push(newstring);
+		if(storedData.length > 5) storedData.shift();
+		localStorage.setItem('recent_search', JSON.stringify(storedData));
+	}
+}
+
+function deleteSearch(index) {
+	if(localStorage.getItem('recent_search') != null) {
+		var storedData = JSON.parse(localStorage.getItem('recent_search'));
+		storedData.splice(index, 1);
+		localStorage.setItem('recent_search', JSON.stringify(storedData));
+		recalculateSearches();
+		var storedData = JSON.parse(localStorage.getItem('recent_search'));
+		if(storedData.length == 0) {
+			$('.main-search .search-history').fadeOut('slow');
+		}
+	} else {
+		$('.main-search .search-history').fadeOut('slow');
+	}
+}
+
+function checkDeviceMenu() {
+	if ($(window).width() >= 992) {
+		$('body').removeClass('mobile-menu').addClass('desktop-menu');
+	} else {
+		$('body').removeClass('desktop-menu').addClass('mobile-menu');
+	}
+}
+
+function showDesktopMenu() {
+	$('.sl-sideleft').width(0).show().stop().animate({width: '230px', padding: '10px', opacity: 1}, 200, function () {});
+	$('.sl-sideleft-content').stop().fadeIn(200, function () {
+		$('body').addClass('opened-menu').removeClass('collapsed-menu');
+	});
+}
+
+function showMobileMenu() {
+}
+
+function hideDesktopMenu() {
+	$('.sl-sideleft-content').fadeOut(200, function () {});
+	$('.sl-sideleft').animate({width: '0', padding: 0}, 200, function () {
+		$(this).fadeOut(200);
+		$('body').addClass('collapsed-menu').removeClass('opened-menu');
+	});
+}
+
+function closeSearch() {
+	$('.search-over').fadeOut('fast', function() {
+		$('body').removeClass('search-opened');
+		$('.search-cover').fadeOut('fast');
+	});
+}
+
+function hideMobileMenu() {}
+
+/*!
+ * Starlight v2.0.0 (https://themepixels.me/starlight)
+ * Copyright 2017-2018 ThemePixels
+ * Licensed under ThemeForest License
+ */
+
+ 'use strict';
+
+  var setTable, cardsTable, playersTable, dt_mc;
+
+ $(document).ready(function(){
+
+ 	//hide menu with clicking on empty space
+ 	$('.sl-sideleft-cover').click(function(){
+	    $('#desktop-leftopener').click();
+    });
+
+	$('#main-search-field').keyup(function(e){
+	 var code = e.which; // recommended to use e.which, it's normalized across browsers
+	 if(code==13) {
+		 $('#main-search-button').trigger("click");
+	 }
+	});
+
+  // This will auto show sub menu using the slideDown()
+  // when top level menu have a class of .show-sub
+  $('.show-sub + .sl-menu-sub').slideDown();
+
+  $('[data-toggle="modal"]').click(function(e){
+        e.preventDefault();
+        $('.modal').modal('hide');
+        setTimeout(function(){
+            var getID = $(this).attr('data-target');
+            $(getID).modal('show');
+        },10);
+  });
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  //open left desktop menu
+  $('#desktop-leftopener ').click(function(e){
+  	e.preventDefault();
+
+	 if (!$('html').hasClass('show-left')) {
+	    $('html, body').addClass('show-left');
+		showDesktopMenu();
+	 } else {
+		 $('html, body').removeClass('show-left');
+		 hideDesktopMenu();
+	 }
+  });
+
+  //open left mobile menu
+  $('#mobile-leftopener').click(function(e) {
+	 e.preventDefault();
+
+	  if (!$('html').hasClass('show-left')) {
+		  $('html, body').addClass('show-left');
+
+	  } else {
+		  $('html, body').removeClass('show-left');
+
+	  }
+  });
+
+  $('.sl-header-cover').on('click touch', function(){
+	 //console.log('TOUCH .sl-header-cover');
+	 if($('body').hasClass('show-left')) {
+		 $('html, body').removeClass('show-left');
+		 hideMobileMenu();
+	 }
+  });
+
+  $('.sl-close-cover').click(function(){
+	  if($('body').hasClass('show-left')) {
+		  $('html, body').removeClass('show-left');
+		  hideMobileMenu();
+	  }
+  });
+
+  $('body').click('touchend', function(){
+	 checkDeviceMenu();
+  });
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  // This will show sub navigation menu on left sidebar
+  // only when that top level menu have a sub menu on it.
+  $('.sl-menu-link').on('click', function(){
+	var nextElem = $(this).next();
+	var thisLink = $(this);
+
+	if(nextElem.hasClass('sl-menu-sub')) {
+
+	  if(nextElem.is(':visible')) {
+		thisLink.removeClass('show-sub');
+		nextElem.slideUp();
+	  } else {
+		$('.sl-menu-link').each(function(){
+		  $(this).removeClass('show-sub');
+		});
+
+		$('.sl-menu-sub').each(function(){
+		  $(this).slideUp();
+		});
+
+		thisLink.addClass('show-sub');
+		nextElem.slideDown();
+	  }
+	  return false;
+	}
+  });
+
+
+  // highlight syntax highlighter
+  $('pre code').each(function(i, block) {
+	hljs.highlightBlock(block);
+  });
+
+  // Initialize tooltip
+  $('[data-toggle="tooltip"]').tooltip();
+
+  // Initialize popover
+  $('[data-popover-color="default"]').popover();
+
+  // By default, Bootstrap doesn't auto close popover after appearing in the page
+  // resulting other popover overlap each other. Doing this will auto dismiss a popover
+  // when clicking anywhere outside of it
+  $(document).on('click', function (e) {
+	$('[data-toggle="popover"],[data-original-title]').each(function () {
+		//the 'is' for buttons that trigger popups
+		//the 'has' for icons within a button that triggers a popup
+		if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+			(($(this).popover('hide').data('bs.popover')||{}).inState||{}).click = false  // fix for BS 3.3.6
+		}
+
+	});
+  });
+
+  function stretchMainContainer() {
+	  var windowHeight = $(window).height();
+	  $('.sl-mainpanel').css('min-height', windowHeight);
+
+	  var windowWidth = $(window).width();
+	  if(windowWidth <= 991)
+		  $('#web-wrap').removeClass('with-banner');
+	  else $('#web-wrap').addClass('with-banner');
+  }
+
+  stretchMainContainer();
+  $(window).resize(function(){
+	  stretchMainContainer();
+  });
+     function naturalSort (a, b, html) {
+         var re = /(^-?[0-9]+(\.?[0-9]*)[df]?e?[0-9]?%?$|^0x[0-9a-f]+$|[0-9]+)/gi,
+             sre = /(^[ ]*|[ ]*$)/g,
+             dre = /(^([\w ]+,?[\w ]+)?[\w ]+,?[\w ]+\d+:\d+(:\d+)?[\w ]?|^\d{1,4}[\/\-]\d{1,4}[\/\-]\d{1,4}|^\w+, \w+ \d+, \d{4})/,
+             hre = /^0x[0-9a-f]+$/i,
+             ore = /^0/,
+             htmre = /(<([^>]+)>)/ig,
+             // convert all to strings and trim()
+             x = a.toString().replace(sre, '') || '',
+             y = b.toString().replace(sre, '') || '';
+         // remove html from strings if desired
+         if (!html) {
+             x = x.replace(htmre, '');
+             y = y.replace(htmre, '');
+         }
+         // chunk/tokenize
+         var xN = x.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+             yN = y.replace(re, '\0$1\0').replace(/\0$/,'').replace(/^\0/,'').split('\0'),
+             // numeric, hex or date detection
+             xD = parseInt(x.match(hre), 10) || (xN.length !== 1 && x.match(dre) && Date.parse(x)),
+             yD = parseInt(y.match(hre), 10) || xD && y.match(dre) && Date.parse(y) || null;
+
+         // first try and sort Hex codes or Dates
+         if (yD) {
+             if ( xD < yD ) {
+                 return -1;
+             }
+             else if ( xD > yD ) {
+                 return 1;
+             }
+         }
+
+         // natural sorting through split numeric strings and default strings
+         for(var cLoc=0, numS=Math.max(xN.length, yN.length); cLoc < numS; cLoc++) {
+             // find floats not starting with '0', string or 0 if not defined (Clint Priest)
+             var oFxNcL = !(xN[cLoc] || '').match(ore) && parseFloat(xN[cLoc], 10) || xN[cLoc] || 0;
+             var oFyNcL = !(yN[cLoc] || '').match(ore) && parseFloat(yN[cLoc], 10) || yN[cLoc] || 0;
+             // handle numeric vs string comparison - number < string - (Kyle Adams)
+             if (isNaN(oFxNcL) !== isNaN(oFyNcL)) {
+                 return (isNaN(oFxNcL)) ? 1 : -1;
+             }
+             // rely on string comparison if different types - i.e. '02' < 2 != '02' < '2'
+             else if (typeof oFxNcL !== typeof oFyNcL) {
+                 oFxNcL += '';
+                 oFyNcL += '';
+             }
+             if (oFxNcL < oFyNcL) {
+                 return 1;
+             }
+             if (oFxNcL > oFyNcL) {
+                 return -1;
+             }
+         }
+         return 0;
+     }
+
+     jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+         "natural-asc": function ( a, b ) {
+             return naturalSort(a,b,true);
+         },
+
+         "natural-desc": function ( a, b ) {
+             return naturalSort(a,b,true) * -1;
+         },
+
+         "natural-nohtml-asc": function( a, b ) {
+             return naturalSort(a,b,false);
+         },
+
+         "natural-nohtml-desc": function( a, b ) {
+             return naturalSort(a,b,false) * -1;
+         },
+
+         "natural-ci-asc": function( a, b ) {
+             a = a.toString().toLowerCase();
+             b = b.toString().toLowerCase();
+
+             return naturalSort(a,b,true);
+         },
+
+         "natural-ci-desc": function( a, b ) {
+             a = a.toString().toLowerCase();
+             b = b.toString().toLowerCase();
+
+             return naturalSort(a,b,true) * -1;
+         }
+     } );
+
+  //Add currency sorting to datatable
+  jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+ 	 "currency-pre": function ( a ) {
+ 		 a = (a==="-") ? 0 : a.replace(/<[^>]*>/g, "").replace( /[^\d\-\.]/g, "" );
+ 		 return parseFloat( a );
+ 	 },
+
+ 	 "currency-asc": function ( a, b ) {
+ 		 return a - b;
+ 	 },
+
+ 	 "currency-desc": function ( a, b ) {
+ 		 return b - a;
+ 	 }
+  });
+	 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+		 "date-uk-pre": function ( a ) {
+			 if (a == null || a == "") {
+				 return 0;
+			 }
+			 var ukDatea = a.split('/');
+			 return (ukDatea[2] + ukDatea[0] + ukDatea[1]) * 1;
+		 },
+
+		 "date-uk-asc": function ( a, b ) {
+			 return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+		 },
+
+		 "date-uk-desc": function ( a, b ) {
+			 return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+		 }
+	 } );
+	 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+		 "net-pre": function ( a ) {
+
+			 var div = document.createElement("div");
+			 div.innerHTML = a;
+			 var text = div.textContent || div.innerText || "";
+
+			 var price = text.replace('USD','');
+			  price = price.replace('$','');
+			 price = price.replace(',','');
+			 var is_minus = false;
+			 var value = 0.00;
+
+			 if(price.charAt(0)=='-'){
+				 is_minus = true;
+				  value = parseFloat(price.replace('-',''));
+			 }else if(price.charAt(0)=='+'){
+				 is_minus = false;
+				  value = parseFloat(price.replace('+',''));
+			 }else{
+				 is_minus = false;
+			 }
+			 if(is_minus){
+			 	value = -1*value;
+			 }
+
+			 return value;
+
+		 },
+
+		 "net-asc": function ( a, b ) {
+			 return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+		 },
+
+		 "net-desc": function ( a, b ) {
+			 return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+		 }
+	 } );
+	var myCollectionDT= $('#datatable1').DataTable({
+		bLengthChange: false,
+		searching: false,
+		responsive: false,
+		pageLength: 25,
+        /*scrollX: true,
+        fixedColumns:   {
+            leftColumns: 1,
+        },*/
+		columnDefs: [
+		   {
+		  	  targets: [4],
+		  	  sType:'net'
+		   }
+		],
+		stateSave: true
+    });
+	function changeCollectionLength(ev) {
+		myCollectionDT.page.len(ev.target.value).draw();
+	}
+	var myCollectionLimit =  $('#my_collection_limit_set');
+	if(myCollectionLimit.length>0){
+		myCollectionLimit.bind('change',changeCollectionLength);
+		myCollectionLimit.val(myCollectionDT.state().length);
+	}
+
+  cardsTable = $('#datatable-search').DataTable({
+	bLengthChange: true,
+	searching: false,
+	responsive: true,
+	ordering:false,
+
+	pageLength: 25,
+	lengthMenu: [[25, 50, 100, -1], [25, 50, 100, "All"]],
+    language: {
+		lengthMenu: "Show _MENU_"
+    },
+	stateSave:true,
+	drawCallback: function (settings) {
+		var api = this.api();
+		api.rows().every(function(){
+			// If row has details collapsed
+			if(!this.child.isShown()){
+				// Expand row details
+				settings.responsive._detailsDisplay(this, false);
+			}
+		});
+		var first_column = $('.responsive.dataTable tr.parent td:first-child');
+		first_column.css('pointer-events', 'none')
+		first_column.addClass('hide_before')
+		setTimeout(function () {
+			$('.dtr-data .icon_span').removeClass('fa-2x')
+		},100)
+	},
+	initComplete: function () {
+		setTimeout(function () {
+			$('.dtr-data .icon_span').removeClass('fa-2x')
+		},200)
+	},
+	stateSaveCallback: function(settings,data) {
+	  localStorage.setItem( 'DataTables_' + settings.sInstance +'_'+window.location.pathname, JSON.stringify(data) )
+	},
+	stateLoadCallback: function(settings) {
+	  var data = JSON.parse( localStorage.getItem( 'DataTables_' +  settings.sInstance +'_'+window.location.pathname) );
+	  if (data) {
+		  data.order = [];
+	  }
+	  return data;
+	}
+  }).on( 'responsive-resize', function () {
+	  $('.dtr-data .icon_span').removeClass('fa-2x')
+    });
+
+	$('#datatable-search-sets').DataTable({
+	    bLengthChange: true,
+	    searching: false,
+	    responsive: true,
+		pageLength: 25,
+		ordering:false,
+		lengthMenu: [[25, 50, 100, -1], [25, 50, 100, "All"]],
+		language: {
+			lengthMenu: "Show _MENU_"
+		},
+		stateSaveCallback: function(settings,data) {
+			localStorage.setItem( 'DataTables_' + settings.sInstance, JSON.stringify(data) )
+		},
+		stateLoadCallback: function(settings) {
+
+			return JSON.parse( localStorage.getItem( 'DataTables_' + settings.sInstance ) )
+		},
+		drawCallback: function (settings) {
+			var api = this.api();
+
+			api.rows().every(function(){
+				// If row has details collapsed
+				if(!this.child.isShown()){
+					// Expand row details
+					settings.responsive._detailsDisplay(this, false);
+				}
+			});
+			var first_column = $('.responsive.dataTable tr.parent td:first-child');
+			first_column.css('pointer-events', 'none')
+			first_column.addClass('hide_before')
+		}
+	});
+
+  //cold cards on homepage
+  var selectedValue = $('.cold-cards-table .selector').val();
+  $('.cold-cards-table .cold').hide();
+  $('.cold-cards-table tr.cold.'+ selectedValue).show();
+  $('.cold-cards-table .selector').change(function() {
+	  var selectedValue = $(this).val();
+	  $('.cold-cards-table .cold').hide();
+	  $('.cold-cards-table tr.cold.'+ selectedValue).show();
+  });
+
+  //cold cards on homepage
+  var selectedValue = $('.hot-cards-table .selector').val();
+  $('.hot-cards-table .hot').hide();
+  $('.hot-cards-table tr.hot.'+ selectedValue).show();
+  $('.hot-cards-table .selector').change(function() {
+	var selectedValue = $(this).val();
+	$('.hot-cards-table .hot').hide();
+	$('.hot-cards-table tr.hot.'+ selectedValue).show();
+  });
+
+
+	$('#carddetail-psa').DataTable({
+		bLengthChange: false,
+		searching: false,
+		responsive: false
+	});
+
+	 $('#carddetail-scg').DataTable({
+		 bLengthChange: false,
+		 searching: false,
+		 responsive: false
+	 });
+
+	 $('#carddetail-gai').DataTable({
+		 bLengthChange: false,
+		 searching: false,
+		 responsive: false
+	 });
+
+	 $('#carddetail-bvg').DataTable({
+		 bLengthChange: false,
+		 searching: false,
+		 responsive: false
+	 });
+
+	 $('#card-set1').DataTable({
+		 bLengthChange: true,
+		 searching: false,
+		 responsive: true
+	 });
+	 var is_with = 0;
+
+if($("#is_with_search").length > 0){
+	 is_with = $("#is_with_search").val();
+}else{
+	 is_with = 0;
+}
+	 var hidden_order = 5;
+
+if(is_with == 1){
+	 hidden_order = 6;
+
+}
+     if($("#card-set-profile_filter").length > 0) {
+         $.fn.dataTable.ext.search.push(function (settings, data, index) {
+
+             var search_word = $("#card-set-profile_filter input").val();
+             var arr, search_in, search_in1;
+             if (search_word.length > 0) {
+                 arr = search_word.trim().split(',');
+                 search_in = data[0].toLowerCase();
+                 search_in1 = data[1].toLowerCase();
+                 return arr.filter(function (el) {
+                         console.log(arr.length);
+                         console.log()
+                         if (arr.length == 1) {
+                             return el.length > 0 && (search_in.indexOf(el.trim().toLowerCase()) >= 0 || search_in1.indexOf(el.trim().toLowerCase()) >= 0 )
+                         }
+                         else {
+                             return el.length > 0 && (search_in.trim() == el.trim().toLocaleLowerCase() || search_in1.trim() == el.trim().toLocaleLowerCase())
+                         }
+                     }).length > 0
+             } else {
+                 return true
+             }
+         });
+     }
+	 function debounce(callback, ms) {
+		 var timer = 0;
+		 return function() {
+			 var context = this, args = arguments;
+			 clearTimeout(timer);
+			 timer = setTimeout(function () {
+				 callback.apply(context, args);
+			 }, ms || 0);
+		 };
+	 }
+	 $("#card-set-profile_filter input").keyup(debounce(function () {
+		 setTable.draw()
+	 },500));
+     setTable = $('#card-set-profile').DataTable({
+		 order: [[ 0, 'desc' ]],
+	     fixedHeader: true,
+         bLengthChange: true,
+         pageLength: 100,
+         searching: true,
+		 searchDelay: 700,
+         responsive: false,
+         stateSave: true,
+		 sDom: 'lrtip',
+         stateSaveCallback: function(settings,data) {
+			 if(data.length == -1){
+				 $(".show_all_text").hide();
+				 $(".show_grade_text").show();
+			 }else {
+				 $(".show_all_text").show();
+				 $(".show_grade_text").hide();
+			 }
+			 localStorage.setItem( 'DataTables_' +  settings.sInstance +'_'+window.location.pathname, JSON.stringify(data) )
+         },
+         stateLoadCallback: function(settings) {
+
+             var data = JSON.parse( localStorage.getItem( 'DataTables_' + settings.sInstance +'_'+window.location.pathname) );
+
+			if(data && data.length == -1){
+				$(".show_all_text").hide();
+				$(".show_grade_text").show();
+			}else{
+				$(".show_all_text").show();
+				$(".show_grade_text").hide();
+			}
+             if (data && data.search) {
+                 data.search.search = '';
+             }
+
+             return data;
+         },
+         columnDefs: [{
+			 targets:[0],
+			 sType: 'natural-nohtml'
+		 },
+			 {
+				 targets: [3],
+				 sType:'date-uk'
+			 },
+			 {
+				 targets: [hidden_order],
+				 orderable: false
+			 },
+			 {
+				 targets:[2],
+				 sType: 'currency'
+
+			 }],
+         language: {
+             search: "Filter by Card # or Name:",
+             lengthMenu: "Show _MENU_",
+             searchPlaceholder: "mantle, jeter or 8,21,56"
+         },
+         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, "All"]],
+		 initComplete: function(settings, json) {
+			 $("#card-set-profile_filter").show()
+		 }
+
+     });
+
+     $('#set-update-profile').DataTable({
+         order: [[ 0, 'desc' ]],
+         fixedHeader: true,
+         bLengthChange: true,
+         pageLength: 100,
+         searching: true,
+         searchDelay: 700,
+         responsive: false,
+         stateSave: true,
+         sDom: 'lrtip',
+         stateSaveCallback: function(settings,data) {
+             if(data.length == -1){
+                 $(".show_all_text").hide();
+                 $(".show_grade_text").show();
+             }else {
+                 $(".show_all_text").show();
+                 $(".show_grade_text").hide();
+             }
+             localStorage.setItem( 'DataTables_' +  settings.sInstance +'_'+window.location.pathname, JSON.stringify(data) )
+         },
+         stateLoadCallback: function(settings) {
+
+             var data = JSON.parse( localStorage.getItem( 'DataTables_' + settings.sInstance +'_'+window.location.pathname) );
+
+             if(data && data.length == -1){
+                 $(".show_all_text").hide();
+                 $(".show_grade_text").show();
+             }else{
+                 $(".show_all_text").show();
+                 $(".show_grade_text").hide();
+             }
+             if (data && data.search) {
+                 data.search.search = '';
+             }
+
+             return data;
+         },
+         columnDefs: [{
+             targets:[0],
+             sType: 'natural-nohtml'
+         }],
+         language: {
+             search: "Filter by Card # or Name:",
+             lengthMenu: "Show _MENU_",
+             searchPlaceholder: "mantle, jeter or 8,21,56"
+         },
+         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, "All"]],
+	 });
+
+	 $('#card-set1-2').DataTable({
+		 bLengthChange: false,
+		 searching: true,
+		 responsive: true
+	 });
+
+	 $('#card-set2').DataTable({
+		 bLengthChange: false,
+		 searching: false,
+		 responsive: true
+	 });
+
+	 var myWantListDT = $('#card-set3').DataTable({
+		 bLengthChange: false,
+		 searching: false,
+		 responsive: false,
+		 pageLength: 25,
+		 ordering: true,
+		 stateSave: true,
+		 columnDefs: [
+			 {
+				 type: "num",
+				 targets: [2],
+				 orderable: false
+			 },
+			 {
+				 targets: [ 0,1 ],
+				 orderable: true
+			 }
+		]
+	 });
+	 function changeWantListLength(ev) {
+		 myWantListDT.page.len(ev.target.value).draw();
+	 }
+	 var myWantListLimit =  $('#my_wantlist_limit_set');
+	 if(myWantListLimit.length>0){
+		 myWantListLimit.bind('change',changeWantListLength);
+		 myWantListLimit.val(myWantListDT.state().length);
+	 }
+
+
+
+
+	 ////////////////////////////
+	 /// SEARCH /////////////////
+	 ////////////////////////////
+	 var $request;
+	 var searchCategory = (getCookie('searchCategory')!="") ? getCookie('searchCategory') : 'baseball';
+	 var searchType = (getCookie('searchType')!="") ? getCookie('searchType') : 'kw';
+	 var searchTerm = '';
+
+	 $('#pop-search-value').keyup(function(e){
+	 	e.preventDefault();
+		 if(e.keyCode == 13)
+		 {
+			 $('.global-search.dark .pop-search-button').trigger('click');
+		 }
+	 });
+
+	 $('.infobox-search button').click(function(){
+         $('.search-opener').trigger('click');
+	 });
+
+	 function triggerAjaxSearch() {
+
+		 //abourt pending requests
+		 if ($request != null){
+			 $request.abort();
+			 $request = null;
+		 }
+		 var keyL = 3;
+		 var characters="characters";
+		if(searchType == 'kw'){
+			keyL = 3;
+		}else if(searchType == 'ac'){
+			keyL = 1;
+			characters="character";
+		}else if(searchType == 'pn'){
+			keyL = 2;
+		}else if(searchType == 'sn'){
+			keyL = 2;
+		}
+
+		 //error message when search term is too short
+		 if(searchTerm.length < keyL) {
+			$('.search-over .loader').hide();
+			$('.search-over .search-results').html('<div class="text-center tx-danger">Please enter at least '+keyL+' '+characters+' to search.</div>');
+			return false;
+		 }
+
+		 $('.search-over .search-results').html('');
+		 $('.search-over .loader').show();
+
+		 $request = $.ajax({
+			 type : "GET",
+			 url : "/keyword-search/index?query="+ searchTerm + '&category='+ searchCategory+'&type='+searchType,
+			 data : "data"
+		 }).done(function(msg) {
+		 	console.log(msg);
+			 $('.search-over .loader').hide();
+
+			 if(msg && msg.suggestions) {
+
+				if(msg.suggestions.cards.length == 0 && msg.suggestions.sets.length == 0 && msg.suggestions.players.length == 0) {
+					$('.search-over .search-results').html('<div class="text-center"><br /><br /><br /><i style="font-size: 3em; margin-bottom: 11px;" class="fa fa-search" aria-hidden="true"></i><br /><h3 class="tx-uppercase">No results</h3></div>');
+					return;
+				}
+
+				//output HTML
+				var outHTML = '';
+				if (msg.suggestions.sets.length > 0) {
+					$("#redirect_link").val('');
+					outHTML = '<div class="box"><div class="box-title">Sets</div>';
+					if(msg.suggestions.sets.length == 1){
+						var redirect_link = msg.suggestions.sets[0].data.link;
+						$("#redirect_link").val(redirect_link);
+					}
+					msg.suggestions.sets.forEach(function (item) {
+						if (item.value)
+							outHTML += '<a href="' + item.data.link + '" class="item">' + item.value + '</a>';
+					});
+					outHTML += '</div></div>';
+				}
+
+				if (msg.suggestions.cards.length > 0) {
+
+					outHTML += '<div class="box"><div class="box-title">Cards</div>';
+					if(msg.suggestions.sets.length == 0 && msg.suggestions.cards.length ==1 ){
+						var redirect_link = msg.suggestions.cards[0].data.link;
+						$("#redirect_link").val(redirect_link);
+					}
+					msg.suggestions.cards.forEach(function (item) {
+						if (item.value){
+							if(item.data.hof == 1){
+								outHTML += '<a href="' + item.data.link + '" class="item">' + item.value + '<span class="fa-1x ml-2"><i class="icon ion-star"></i></span></a>';
+							}else{
+								outHTML += '<a href="' + item.data.link + '" class="item">' + item.value + '</a>';
+							}
+						}
+					});
+					outHTML += '</div></div>';
+				 }
+				 if (msg.suggestions.players.length > 0) {
+					 outHTML += '<div class="box"><div class="box-title">Players</div>';
+					 if(msg.suggestions.players.length ==1 ){
+						 var redirect_link = msg.suggestions.players[0].data.link;
+						 $("#redirect_link").val(redirect_link);
+					 }
+					 msg.suggestions.players.forEach(function (item) {
+
+						 if (item.value){
+						 	if(item.data.hof == 1){
+								outHTML += '<a href="' + item.data.link + '" class="item">' + item.value + '<span class="fa-1x ml-2"><i class="icon ion-star"></i></span></a>';
+							}else{
+								outHTML += '<a href="' + item.data.link + '" class="item">' + item.value + '</a>';
+							}
+
+						 }
+
+					 });
+					 outHTML += '</div></div>';
+				 }
+				 $('.search-over .search-results').html(outHTML);
+
+
+				 $('.search-over .search-results').mark(searchTerm, {
+					 "wildcards": "enabled",
+					 "ignoreJoiners": true,
+					 "acrossElements": true
+				 });
+
+			 }
+		 });
+	 }
+
+	 // $('.search-categories span').removeClass('selected');
+	 // jQuery('.search-categories span[data-value="baseball"]').addClass('selected');
+	 function setPlaceholder(type){
+	 	var placeHolder = '';
+		 switch (type) {
+			 case 'kw':
+				 placeHolder='1933 goudey ruth, 1987 topps, t206 cobb, 1994 jeter';
+				 break;
+			 case 'pn':
+				 placeHolder='Ty Cobb, Willie Mays, Alex Rodriguez';
+				 break;
+			 case 'sn':
+				 placeHolder='1953 topps, 1976, fleer';
+				 break;
+			 case 'ac':
+				 placeHolder='t206, r308, n690';
+				 break;
+		 }
+		 $("#pop-search-value").attr('placeholder',placeHolder);
+	 }
+
+
+	 $('.searchbox.force *').click(function() {
+		$('.search-opener').trigger('click');
+	 });
+
+	 $('.search-opener').click(function() {
+		 //set default value as baseball
+		 searchTerm = '';
+		 $('.search-categories span').removeClass('selected');
+		 $('.search-categories-small span').removeClass('selected');
+		 jQuery('.search-categories span[data-value="'+searchCategory+'"]').addClass('selected');
+		 jQuery('.search-categories-small span[data-value="'+searchType+'"]').addClass('selected');
+		 setPlaceholder(searchType);
+
+		 $('.search-over .loader').hide();
+
+		 $('.search-cover').fadeIn('fast', function() {
+			 $("html, body").animate({ scrollTop: 0 }, "fast");
+			 $('body').addClass('search-opened');
+			 $('.search-over').fadeIn('fast');
+			 $('#pop-search-value').focus();
+		 });
+	 });
+
+	 $('.search-over .closeme').click(closeSearch);
+	 $(document).keyup(function (e){
+		 if(e.key === "Escape") {
+			 closeSearch();
+		 }
+	 });
+
+	 $('.global-search .pop-search-button').click(function(e) {
+
+	 	e.preventDefault();
+		 var keyL = 3;
+		 var characters="characters";
+		 if(searchType == 'kw'){
+			 keyL = 3;
+		 }else if(searchType == 'ac'){
+			 keyL = 1;
+			 characters="character";
+		 }else if(searchType == 'pn'){
+			 keyL = 2;
+		 }else if(searchType == 'sn'){
+			 keyL = 2;
+		 }
+
+
+	 	 var redirect_link = $("#redirect_link").val();
+         searchTerm = $.trim(searchTerm);
+         if(searchTerm.length == 0){
+             $('.search-over .search-results').html('<div class="text-center tx-danger">Please enter at least '+keyL+' '+characters+' to search.</div>');
+         }
+		 if(searchTerm.length < keyL){
+		 	return false;
+		 }
+
+	 	 if(searchType=='pn' && redirect_link ==''){
+	 	 	var terms = searchTerm.split(' ');
+	 	 	if(terms.length==1 || (terms.length==2 && $.trim(terms[1])=="")){
+				$('.search-over .search-results').prepend('<div class="text-center tx-danger">Please select a player name below.</div>');
+				return false;
+			}else{
+                searchTerm = searchTerm.replace(' ', '-');
+                //name-search/babe-ruth/baseball-cards
+                redirect_link =  '/name-search/'+ terms[0]+'-'+terms[1] + '/'+ searchCategory+"-cards";
+	 	 	}
+		 }else{
+			 if(redirect_link == ''){
+			 	searchTerm = searchTerm.replace(' ', '-');
+			 	if(searchType == 'kw'){
+                    //keyword-search/1933-goudey-ruth/baseball-cards
+                    redirect_link =  '/keyword-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+				}else if(searchType == 'ac'){
+					//acc-search/t206/baseball-cards
+                    redirect_link =  '/acc-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+				}else if(searchType == 'sn'){
+					//set-search/1971-topps/baseball-cards
+                    redirect_link =  '/set-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+                }
+
+			 }
+		 }
+		 window.location.href = redirect_link
+
+	 });
+	 function getCookie(cname) {
+		 var name = cname + "=";
+		 var decodedCookie = decodeURIComponent(document.cookie);
+		 var ca = decodedCookie.split(';');
+		 for(var i = 0; i <ca.length; i++) {
+			 var c = ca[i];
+			 while (c.charAt(0) == ' ') {
+				 c = c.substring(1);
+			 }
+			 if (c.indexOf(name) == 0) {
+				 return c.substring(name.length, c.length);
+			 }
+		 }
+		 return "";
+	 }
+
+	 $('.main-search.detail .submitter').click(function(){
+         searchTerm = $('#main-search-field').val();
+
+         searchCategory = $('.search-categories>span.selected').data('value');
+		 var redirect_link = $("#redirect_link").val();
+         searchTerm = $.trim(searchTerm);
+         if(searchType=='pn' && redirect_link ==''){
+             var terms = searchTerm.split(' ');
+             if(terms.length==1 || (terms.length==2 && $.trim(terms[1])=="")){
+                 $('.search-over .search-results').prepend('<div class="text-center tx-danger">Please select a player name below.</div>');
+                 return false;
+             }else{
+                 searchTerm = searchTerm.replace(' ', '-');
+                 //name-search/babe-ruth/baseball-cards
+                 redirect_link =  '/name-search/'+ terms[0]+'-'+terms[1] + '/'+ searchCategory+"-cards";
+             }
+         }else{
+             if(redirect_link == ''){
+                 searchTerm = searchTerm.replace(' ', '-');
+                 if(searchType == 'kw'){
+                     //keyword-search/1933-goudey-ruth/baseball-cards
+                     redirect_link =  '/keyword-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+                 }else if(searchType == 'ac'){
+                     //acc-search/t206/baseball-cards
+                     redirect_link =  '/acc-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+                 }else if(searchType == 'sn'){
+                     //set-search/1971-topps/baseball-cards
+                     redirect_link =  '/set-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+                 }
+
+             }
+         }
+		 window.location.href = redirect_link;
+
+     });
+
+
+	 $('.global-search .search-button').click(function(){
+		 searchTerm = $('#main-search-field').val();
+
+		 searchCategory = $('.search-categories>span.selected').data('value');
+		 var redirect_link = $("#redirect_link").val();
+		 if(searchType=='pn' && redirect_link ==''){
+			 var terms = searchTerm.split(' ');
+			 if(terms.length==1 || (terms.length==2 && $.trim(terms[1])=="")){
+				 $('.search-over .search-results').prepend('<div class="text-center tx-danger">Please select a player name below.</div>');
+				 return false;
+			 }else{
+				 searchTerm = searchTerm.replace(' ', '-');
+				 //name-search/babe-ruth/baseball-cards
+				 redirect_link =  '/name-search/'+ terms[0]+'-'+terms[1] + '/'+ searchCategory+"-cards";
+			 }
+		 }else{
+			 if(redirect_link == ''){
+				 searchTerm = searchTerm.replace(' ', '-');
+				 if(searchType == 'kw'){
+					 //keyword-search/1933-goudey-ruth/baseball-cards
+					 redirect_link =  '/keyword-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+				 }else if(searchType == 'ac'){
+					 //acc-search/t206/baseball-cards
+					 redirect_link =  '/acc-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+				 }else if(searchType == 'sn'){
+					 //set-search/1971-topps/baseball-cards
+					 redirect_link =  '/set-search/'+ searchTerm + '/'+ searchCategory+"-cards";
+				 }
+
+			 }
+		 }
+		 window.location.href = redirect_link;
+	 });
+
+ 	 $('.global-search.normal .search input').on('input',function(e){
+		searchTerm = $(this).val();
+ 	 });
+
+	 $('.global-search.dark .search input').on('input', function(e){
+		 searchTerm = $(this).val();
+		 triggerAjaxSearch();
+	 });
+
+	 $('.search-categories span').click(function(){
+		 searchCategory = jQuery(this).attr('data-value');
+		 $('.search-categories span').removeClass('selected');
+		 jQuery(this).addClass('selected');
+		 var today = new Date();
+		 var tomorrow = new Date();
+		 tomorrow.setDate(today.getDate()+1);
+
+		 document.cookie = "searchCategory="+searchCategory+"; "+tomorrow+"; path=/";
+		 if(searchTerm != '') {
+			triggerAjaxSearch();
+		 }
+
+	 });
+	 $('.search-categories-small span').click(function(){
+		 searchType= jQuery(this).attr('data-value');
+		 $('.search-categories-small span').removeClass('selected');
+		 jQuery(this).addClass('selected');
+		 var today = new Date();
+		 var tomorrow = new Date();
+		 tomorrow.setDate(today.getDate()+1);
+		 setPlaceholder(searchType);
+		 document.cookie = "searchType="+searchType+"; "+tomorrow+"; path=/";
+
+
+		 if(searchTerm != '') {
+			 triggerAjaxSearch();
+		 }
+
+	 });
+	 var current_carousel_card;
+	 $('.my-flipster').show();
+	 $('.my-flipster').flipster({
+		 loop: false,
+		 autoplay: false,
+		 pauseOnHover: true,
+		 spacing: -0.6,
+		 nav: false,
+		 buttons: false,
+		 scrollwheel: false,
+		 onItemSwitch: function (current, prev) {
+			 current_carousel_card = $(current).attr('data-info');
+			 var percent = $(current).attr('data-percent');
+			 if(percent) {
+				 $('.current_card_info .percent_info').html('+'+percent+'%')
+			 }
+			 $('.current_card_info').css('display','block');
+			 $('.current_card_info .card_info').html(current_carousel_card)
+			 setTimeout(function () {
+				var left = $(current).position().left;
+				var width = $(current).find('img').outerWidth();
+				var containerWidth = $(current).parent().width();
+				var offset =  -1 * ((left + (width / 2)) - (containerWidth / 2));
+				$(current).parent().css("transform", "translateX(" + offset + "px)");
+			},50)
+		 }
+	 });
+
+	//decorate ebay listing with some classes
+	var ebay_page = 0;
+	var ebay_page_iter = 0;
+	var ebay_per_page = 10;
+
+	setTimeout(function() {
+
+		var iter = 1;
+		$(".ebay-listing table tr:odd").addClass('odd');
+		$(".ebay-listing table tr:even").addClass('even');
+		var totalCount = $('.ebay-listing table tr').length;
+		var iterr = 0;
+		$('.ebay-listing table tr').each(function () {
+
+			if (totalCount - 1 == iterr) $(this).addClass('last');
+			if (totalCount - 2 == iterr) $(this).addClass('last2');
+			if (totalCount - 3 == iterr) $(this).addClass('last3');
+			if (totalCount - 4 == iterr) $(this).addClass('last4');
+
+			iterr++;
+		});
+
+		$('.ebay-listing table').each(function () {
+			$(this).addClass('table' + iter);
+			iter++;
+
+			var iter2 = -1;
+			$(this).find('tr').each(function (item) {
+				if (!$(this).hasClass('rrow')) {
+					$(this).find('td').eq(0).addClass('col1');
+					$(this).find('td').eq(1).addClass('col2');
+					$(this).find('td').eq(2).addClass('col3');
+					$(this).find('td').eq(3).addClass('col4');
+					$(this).find('td').eq(4).addClass('col5');
+					$(this).addClass('rrow rrow' + iter2);
+					iter2++;
+				}
+			});
+		});
+
+		$('.ebay-listing table').each(function () {
+			$(this).find('tr').each(function (item) {
+				if (!$(this).hasClass('rrow0')) {
+
+					if (ebay_page_iter + 1 >= ebay_per_page) {
+						ebay_page++;
+						ebay_page_iter = 0;
+					} else {
+						ebay_page_iter++;
+					}
+
+					$(this).addClass('page page' + ebay_page);
+				}
+			});
+		});
+
+		$('.ebay-listing .table5 .page').hide();
+		$('.ebay-listing .table5 .rrow0').show();
+		$('.ebay-listing .table5 .page.page1').show();
+
+		function handlePaginator(){
+			var currentPage = parseInt($('#ebay-paginator .selected.paginator').attr('data-page'));
+			var maxPage = $('#ebay-paginator .btn.paginator').length;
+
+			$('#ebay-paginator .btn').removeClass('disabled');
+
+			if(currentPage == 1) $('#ebay-paginator .btn.previous').addClass('disabled');
+			if(currentPage == maxPage) $('#ebay-paginator .btn.next').addClass('disabled');
+
+			$('#ebay-paginator .btn').removeClass('showme').hide();
+			$('#ebay-paginator .btn.previous, #ebay-paginator .btn.next').show();
+			$('#ebay-paginator .btn.ellipsis').remove();
+
+			if(currentPage <= 4) {
+				$('#ebay-paginator .btn.page1').addClass('showme').show();
+				$('#ebay-paginator .btn.page2').addClass('showme').show();
+				$('#ebay-paginator .btn.page3').addClass('showme').show();
+				$('#ebay-paginator .btn.page4').addClass('showme').show();
+				$('#ebay-paginator .btn.page5').addClass('showme').show();
+				$('#ebay-paginator .btn.page'+ maxPage).addClass('showme').show();
+				$('#ebay-paginator .btn.page5').after('<div class="btn ellipsis">...</div>');
+
+			} else if(maxPage - 3 <= currentPage) {
+				$('#ebay-paginator .btn.page' + (maxPage - 4)).before('<div class="btn ellipsis">...</div>');
+				$('#ebay-paginator .btn.page' + maxPage).addClass('showme').show();
+				$('#ebay-paginator .btn.page' + (maxPage - 1)).addClass('showme').show();
+				$('#ebay-paginator .btn.page' + (maxPage - 2)).addClass('showme').show();
+				$('#ebay-paginator .btn.page' + (maxPage - 3)).addClass('showme').show();
+				$('#ebay-paginator .btn.page' + (maxPage - 4)).addClass('showme').show();
+				$('#ebay-paginator .btn.page1').addClass('showme').show();
+			} else {
+				$('#ebay-paginator .btn.page1').addClass('showme').show();
+				$('#ebay-paginator .btn.page'+ maxPage).addClass('showme').show();
+
+				$('#ebay-paginator .btn.page' + (currentPage - 1)).before('<div class="btn ellipsis">...</div>');
+				$('#ebay-paginator .btn.page'+ (currentPage - 1)).addClass('showme').show();
+				$('#ebay-paginator .btn.page'+ currentPage).addClass('showme').show();
+				$('#ebay-paginator .btn.page'+ (currentPage + 1)).addClass('showme').show();
+				$('#ebay-paginator .btn.page' + (currentPage + 1)).after('<div class="btn ellipsis">...</div>');
+
+			}
+
+		}
+
+		var ebay_c = '';
+		ebay_c += '<div class="btn btn-secondary previous">Previous</div>';
+
+		for (var i = 1; i <= ebay_page; i++) {
+			ebay_c += '<div class="btn btn-secondary ';
+			if(i == 1) ebay_c += ' selected ';
+			ebay_c += ' paginator page'+ i +'" data-page="' + i + '">' + i + '</div>';
+		}
+
+		ebay_c += '<div class="btn btn-secondary next">Next</div>';
+		var table_collapsed, table_display;
+
+		if(typeof permission !='undefined'){
+            permission === 2? (table_display = 'none', table_collapsed=true ): (table_display = 'block', table_collapsed = false);
+
+        }
+		if(window.sessionStorage.getItem('table_collapsed')){
+			table_collapsed = JSON.parse(window.sessionStorage.getItem('table_collapsed'))
+			table_collapsed ? table_display = 'none': table_display = 'block'
+		}
+		$('.ebay-listing').append('<div id="ebay-paginator" style="display: '+table_display+'">' + ebay_c + '</div>');
+		handlePaginator();
+
+		$('.ebay-listing .paginator').click(function(e){
+			e.preventDefault();
+			$('.ebay-listing .paginator').removeClass('selected');
+			$(this).addClass('selected');
+			var page = $(this).attr('data-page');
+			$('.ebay-listing .table5 .page').hide();
+			$('.ebay-listing .table5 .page.page'+ page).show();
+			handlePaginator();
+		});
+
+		$('#ebay-paginator .btn.previous').click(function(e){
+			e.preventDefault();
+			var currentPage = $('#ebay-paginator .selected.paginator').attr('data-page');
+			if(currentPage - 1 >= 1) {
+				$('#ebay-paginator .btn.page'+ (currentPage - 1)).click();
+			}
+		});
+
+		$('#ebay-paginator .btn.next').click(function(e) {
+			e.preventDefault();
+			var maxPage = $('#ebay-paginator .btn.paginator').length;
+			var currentPage = parseInt($('#ebay-paginator .selected.paginator').attr('data-page'));
+			if(currentPage + 1 <= maxPage) {
+				$('#ebay-paginator .btn.page'+ (currentPage + 1)).click();
+			}
+		});
+
+	}, 10);
+
+	//custom accordeon - everything opened by default
+	$('.accordion.custom a.transition').click(function(e) {
+		e.preventDefault();
+
+		var selector = $('#'+ $(this).attr('data-id'));
+		if(selector.hasClass('show')) {
+			selector.slideUp('slow', function(){
+				selector.removeClass('show');
+			});
+		} else {
+			selector.slideDown('slow', function(){
+				selector.addClass('show');
+			});
+		}
+	});
+
+	//credit card formatter
+	function cc_format(value) {
+		 var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+		 var matches = v.match(/\d{4,16}/g);
+		 var match = matches && matches[0] || ''
+		 var parts = []
+		 for (var i=0, len=match.length; i<len; i+=4) {
+			 parts.push(match.substring(i, i+4))
+		 }
+		 if (parts.length) {
+			 return parts.join('-')
+		 } else {
+			 return value
+		 }
+	}
+
+	$('#userccdetails-cc_number_plain').on('click change keypress paste', function(){
+		$(this).val(cc_format($(this).val()));
+	});
+
+	// recently searched functionality
+	$('#main-search-field').click(function(){
+		recalculateSearches();
+	});
+
+	$('.main-search .searchbox .submitter').click(function() {
+		manageSearches($('#main-search-field').val());
+	});
+
+	$('.main-search .search-history .clearall').click(function(){
+		$('.main-search .search-history').fadeOut('slow', function(){
+			localStorage.removeItem('recent_search');
+			$('table.searches').html('');
+		});
+	});
+	if($('.slider-container').length>0){
+		$(".slider-container").on('init', function (slick) {
+			$('.slide').css('display','inline-block')
+		}).slick({
+			lazyLoad: 'ondemand', // ondemand progressive anticipated
+			infinite: true,
+			autoplay: true,
+			autoplaySpeed: 8000,
+			dots: true,
+			prevArrow: '<div class="slick-prev"><i class="slider_arrow_left"></i></div>',
+			nextArrow: '<div class="slick-next"><i class="slider_arrow_right"></i></div>'
+		})
+	}
+	 var flipCheckInterval = setInterval(function () {
+		 if($('.flipster--active').length>0 && $('.flipster__item--current').length>0){
+			 clearInterval(flipCheckInterval);
+			 setTimeout(function () {
+				 $('.my-flipster').flipster('next');
+				 $('.my-flipster').flipster('prev');
+			 }, 1500);
+		 }
+	 },100);
+	 var unsearchableColumns=[];
+	 $.each($('#datatable-search-players th'), function (i, el) {
+		 if(!$(el).hasClass('searchable_col')){
+			 unsearchableColumns.push(i)
+		 }
+	 });
+	 playersTable = $('#datatable-search-players').DataTable({
+         bLengthChange: true,
+         searching: true,
+         responsive: true,
+         ordering:false,
+
+         pageLength: 25,
+         lengthMenu: [[25, 50, 100, -1], [25, 50, 100, "All"]],
+         language: {
+             lengthMenu: "Show _MENU_",
+			 search: "<span>Filter by Year, Set, or Variation:</span>",
+			 searchPlaceholder: "1976, topps, 1994 sp authetic"
+         },
+		 columnDefs: [
+			 {
+			 	targets: unsearchableColumns,
+				searchable: false
+			 }
+		 ],
+         stateSave:true,
+         drawCallback: function (settings) {
+             var api = this.api();
+             api.rows().every(function(){
+                 // If row has details collapsed
+                 if(!this.child.isShown()){
+                     // Expand row details
+                     settings.responsive._detailsDisplay(this, false);
+                 }
+             });
+             var first_column = $('.responsive.dataTable tr.parent td:first-child');
+             first_column.css('pointer-events', 'none')
+             first_column.addClass('hide_before')
+             setTimeout(function () {
+                 $('.dtr-data .icon_span').removeClass('fa-2x')
+				 // console.log($('#datatable-search-players_length').length,'lllllllllllllll')
+             },100)
+         },
+         initComplete: function () {
+             setTimeout(function () {
+                 $('.dtr-data .icon_span').removeClass('fa-2x')
+             },200)
+         },
+         stateSaveCallback: function(settings,data) {
+             localStorage.setItem( 'DataTables_' + settings.sInstance +'_'+window.location.pathname, JSON.stringify(data) )
+         },
+         stateLoadCallback: function(settings) {
+             var data = JSON.parse( localStorage.getItem( 'DataTables_' +  settings.sInstance +'_'+window.location.pathname) );
+             if (data) {
+                 data.order = [];
+             }
+             return data;
+         }
+     }).on( 'responsive-resize', function () {
+         $('.dtr-data .icon_span').removeClass('fa-2x')
+     });
+	 var EVENTS_TO_DEBOUNCE = 'keyup.DT input.DT cut.DT paste.DT';
+
+	 $('#datatable-search-players_filter.dataTables_filter input[type="search"]')
+		 .off(EVENTS_TO_DEBOUNCE)
+		 .on(EVENTS_TO_DEBOUNCE, debounce(function() {
+			 $(this).trigger('search.DT');
+		 }, 1000));
+
+     var optionsCol = $('#edit_group option');
+     var arrCol = optionsCol.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
+     arrCol.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
+     optionsCol.each(function(i, o) {
+         o.value = arrCol[i].v;
+         $(o).text(arrCol[i].t);
+     });
+
+     var optionsWl = $('#edit_group_wl option');
+     var arrWl = optionsWl.map(function(_, o) { return { t: $(o).text(), v: o.value }; }).get();
+     arrWl.sort(function(o1, o2) { return o1.t > o2.t ? 1 : o1.t < o2.t ? -1 : 0; });
+     optionsWl.each(function(i, o) {
+         o.value = arrWl[i].v;
+         $(o).text(arrWl[i].t);
+     });
+
+     jQuery.fn.dataTableExt.oSort['mysort-asc']=function(a,b) {
+         var re = new RegExp("^([a-zA-Z]*)(.*)");
+         var x = re.exec(a);
+         var y = re.exec(b);
+
+         if (x[1] > y[1]) return 1;
+         if (x[1] < y[1]) return -1;
+
+         // if you want to force the 2nd part to only be numeric:
+         x[2] = parseInt(x[2]);
+         y[2] = parseInt(y[2]);
+
+         return ((x[2] < y[2]) ? -1 : ((x[2] > y[2]) ? 1 : 0));
+     };
+     jQuery.fn.dataTableExt.oSort['mysort-desc'] = function(a,b) {
+         var re = new RegExp("^([a-zA-Z]*)(.*)");
+         var x = re.exec(a);
+         var y = re.exec(b);
+
+         if (x[1] > y[1]) return -1;
+         if (x[1] < y[1]) return 1;
+
+         // if you want to force the 2nd part to only be numeric:
+         x[2] = parseInt(x[2]);
+         y[2] = parseInt(y[2]);
+
+         return ((x[2] < y[2]) ? 1 : ((x[2] > y[2]) ? -1 : 0));
+     };
+
+     jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+         "title-numeric-pre": function ( a ) {
+             var x = a.match(/title="*(-?[0-9\.]+)/)[1];
+             return parseFloat( x );
+         },
+
+         "title-numeric-asc": function ( a, b ) {
+             return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+         },
+
+         "title-numeric-desc": function ( a, b ) {
+             return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+         }
+     } );
+
+     dt_mc = jQuery('#collection-list-cards').DataTable({
+         bLengthChange: false,
+         searching: true,
+         language: {
+             searchPlaceholder: "1958, topps, 25, bonds"
+         },
+         responsive: false,
+         pageLength: 25,
+         ordering: true,
+         order: [[ 7, "asc" ]],
+         stateSave: true,
+         stateDuration: 60 * 60 * 24*365,
+         columnDefs: [
+             {
+                 targets: [7],
+                 orderable: true,
+                 sType: "title-numeric"
+             },
+             {
+                 targets: [11],
+                 orderable: false,
+                 searchable: false
+             },
+             {
+                 targets: [ 0,1,2,3,4,5,6 ],
+                 visible: false,
+                 orderable: true,
+                 searchable: true
+             },
+             {
+                 targets: [10],
+                 sType:'net'
+             },
+             {
+                 targets: [8,9,10],
+                 orderable: true,
+                 sType: 'currency'
+             }
+
+         ]
+     });
+     function changeLength(ev) {
+         dt_mc.page.len(ev.target.value).draw();
+     }
+
+	 jQuery(document).ready(function (){
+	 	try {
+            $('#limit_set').bind('change',changeLength)
+            var order_sort = dt_mc.state().order;
+            $("#limit_set").val(dt_mc.state().length);
+            var ord_type1 = order_sort[0][1];
+            var ord_type;
+            if(ord_type1 =='asc'){
+                ord_type = 'desc';
+            }else{
+                ord_type = 'asc';
+            }
+            if(order_sort[0][0] == 0){
+                jQuery(".def_orders").removeClass('active');
+                jQuery("#by_year.def_orders").addClass('active');
+                jQuery("#by_year").attr('data-type',ord_type);
+            }else if(order_sort[0][0] == 1){
+                jQuery(".def_orders").removeClass('active');
+                jQuery("#by_set.def_orders").addClass('active');
+                jQuery("#by_set").attr('data-type',ord_type);
+            }else if(order_sort[0][0] == 2){
+                jQuery(".def_orders").removeClass('active');
+                jQuery("#by_name.def_orders").addClass('active');
+                jQuery("#by_name").attr('data-type',ord_type);
+            }else if(order_sort[0][0] == 3){
+                jQuery(".def_orders").removeClass('active');
+                jQuery("#by_card.def_orders").addClass('active');
+                jQuery("#by_card").attr('data-type',ord_type);
+            }else if(order_sort[0][0] == 4){
+                jQuery(".def_orders").removeClass('active');
+                jQuery("#by_category.def_orders").addClass('active');
+                jQuery("#by_category").attr('data-type',ord_type);
+            }
+            jQuery(".def_orders").click(function(){
+                var elem = jQuery(this).attr('data-id');
+                var type = jQuery(this).attr('data-type');
+                if(type=='asc'){
+                    var change = 'desc';
+                }else{
+                    change = 'asc'
+                }
+                jQuery(".def_orders").removeClass('active');
+                console.log(this)
+                jQuery(this).attr('data-type',change);
+                jQuery(this).addClass('active');
+                dt_mc.order( [ elem, type ] )
+                    .draw();
+            })
+		} catch (e) {
+
+		}
+	 });
+
+});
