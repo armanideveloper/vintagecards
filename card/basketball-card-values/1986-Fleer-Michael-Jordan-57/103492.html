@@ -39,6 +39,17 @@
 		.alert-class {
 			opacity: 1 !important;
 		}
+        @media(max-width:748px){
+            .modal-footer-mobile-flex {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .modal-footer-mobile-flex #listing-pages-list {
+                margin-bottom: 20px;
+            }
+        }
 	</style>
 
 </head>
@@ -890,11 +901,15 @@
 
     #listing-pages-list a.paginator {
         float: center;
+        margin-left: 5px;
     }
-</style>
+    #listing-pages-list a.paginator:active,#listing-pages-list a.paginator:focus {
+        background-color: #232323 !important;
+    }
+    </style>
 
 <!-- CARD DETAIL - PURCHASE BID -->
-<div id="listings" class="modal purchase-bids purchase-bids-bug" style="display: none;">
+<div id="listings" class="modal purchase-bids purchase-bids-bug" tabindex='-1' style="display: none;">
     <div class="modal-dialog" role="document">
         <div class="modal-content tx-size-sm">
             <div class="modal-header pd-x-20" style="display: block;">
@@ -911,12 +926,17 @@
                             <div style="margin-top: 2px; float:left; margin-left: 12px;" id="modal-grades"></div>
                         </div>
                     </div>
+                    <div class="dropdown" style="margin-right: 30px;">
+                        <div style="margin: 0 auto; font-size: 1.175rem;">
+                            <div style="margin-top: 2px; float:left; margin-left: 12px;" id="modal-types"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="modal-body pd-20" id="listing-box">
             </div>
-            <div class="modal-footer">
-                <div id="listing-pages-list" style="float:left; margin-left: 4px;"></div>
+            <div class="modal-footer modal-footer-mobile-flex">
+                <div id="listing-pages-list" class="align-items-center d-flex justify-content-center" style="float:left; margin-left: 4px;"></div>
                 <div style="position: absolute;left:5px;">
                 <img height="45" width="95" class="img-fluid" src="../../../template/img/RNO-eBay.gif">
                 </div>
@@ -1362,12 +1382,23 @@ jQuery('#add-wantlist-form').yiiActiveForm([], []);
         jQuery('#listing-pages-list').find('.paginator').removeClass('active');
 
         if (page_num > 1) {
-
+            let nextButton = '',
+            prevButton = '';
             for (var i=0;i<page_num;i++) {
-
+                if(i == page_num-1) {
+                    nextButton = '<button class="btn btn-secondary paginator nextPag"> > </button>';
+                }
+                if(i == 0){
+                    prevButton = '<button disabled="disabled" class="btn btn-secondary paginator prevPag"> < </button>';
+                }
+                else {
+                    prevButton = '';
+                }
+                let displayAttr = (i>4 && i < page_num-1) ? 'd-none' : '',
+                threeDots = (i === page_num-2) ? '<span class="mx-2">...</span>' : '';
                 // render page link
                 var active_class = current_page == (i+1) || (!current_page && i==0) ? ' active' : '';
-                var btn = '<a href="103492.html#" class="btn btn-secondary paginator page'+ (i+1) + active_class +'" data-page="'+ (i+1) +'">'+ (i+1) +'</a>';
+                var btn = prevButton + '<a href="103492.html#" class="' + displayAttr + ' btn btn-secondary paginator page'+ (i+1) + active_class +'" data-page="'+ (i+1) +'">'+ (i+1) +'</a>'+threeDots+nextButton;
                 jQuery('#listing-pages-list').append(btn);
 
                 // render page setter for admins
@@ -1377,12 +1408,61 @@ jQuery('#add-wantlist-form').yiiActiveForm([], []);
 
             }
 
+            //next button
+
+            $('#listing-pages-list').find('button.paginator').click(function(e){
+
+                if($(this).hasClass('nextPag')){
+                    $(".active").next().addClass('active');
+                    $(".active").prev().removeClass('active');
+                    
+                    if($('#listing-pages-list > a.active').index('#listing-pages-list > a') == (-1)){
+                        $('#listing-pages-list > a.active').removeClass('active');
+                        $('#listing-pages-list > a').last().addClass('active');
+                    }
+                }
+                
+                if($(this).hasClass('prevPag')){
+                    $(".active").prev().addClass('active');
+                    $(".active").next().removeClass('active');
+                }
+                    
+                current_page = $(".active").data('page');
+
+                if (jQuery('.live-listing-row-' + current_page).length) {
+                    jQuery('.live-listing-row').hide();
+                    jQuery('.live-listing-row-' + current_page).show();
+                }
+
+                // console.log($('#listing-pages-list > a.active').index('#listing-pages-list > a') , $('#listing-pages-list > a').length - 1);
+
+            });
+
             // page click event
             jQuery('#listing-pages-list').find('.paginator').click(function(e){
                 e.preventDefault();
 
-                jQuery('#listing-pages-list').find('.paginator').removeClass('active');
-                jQuery(this).addClass('active');
+                if(!$(this).is( "button" )){
+                    jQuery('#listing-pages-list').find('.paginator').removeClass('active');
+                    jQuery(this).addClass('active');
+                }
+                
+                //next Button
+
+
+                if($('#listing-pages-list > a.active').index('#listing-pages-list > a') >= $('#listing-pages-list > a').length - 1){
+                    $('#listing-pages-list > button.nextPag').attr("disabled", true);
+                }
+                else {
+                    $('#listing-pages-list > button.nextPag').attr("disabled", false);
+                }
+                if($('#listing-pages-list > a.active').index('#listing-pages-list > a') <= 0){
+                    $('#listing-pages-list > button.prevPag').attr("disabled", true);
+                }
+                else {
+                    $('#listing-pages-list > button.prevPag').attr("disabled", false);
+                }
+
 
                 // show current page
                 current_page = jQuery(this).data('page');
@@ -1391,6 +1471,27 @@ jQuery('#add-wantlist-form').yiiActiveForm([], []);
                     jQuery('.live-listing-row').hide();
                     jQuery('.live-listing-row-' + current_page).show();
                 }
+
+
+                if ($('#listing-pages-list > a.active').index() <= 2) {
+                    $('#listing-pages-list > a').addClass('d-none');
+                    $('#listing-pages-list > a').slice(0,5).removeClass('d-none');
+                }
+                else if($('#listing-pages-list > a.active').index() >= $('#listing-pages-list > a').length - 3){
+                    $('#listing-pages-list > span.mx-2').hide()
+                    $('#listing-pages-list > a').addClass('d-none');
+                    $('#listing-pages-list > a').slice($('#listing-pages-list > a').length-5).removeClass('d-none');
+                }
+                else {
+                    $('#listing-pages-list > a.paginator').addClass('d-none');
+                    $('#listing-pages-list > a.active').removeClass('d-none');
+                    $('#listing-pages-list > a.active').next().removeClass('d-none');
+                    $('#listing-pages-list > a.active').next().next().removeClass('d-none');
+                    $('#listing-pages-list > a.active').prev().removeClass('d-none');
+                    $('#listing-pages-list > a.active').prev().prev().removeClass('d-none');
+                    $('#listing-pages-list > span.mx-2').show();
+                }
+                $('#listing-pages-list > a.paginator').last().removeClass('d-none');
 
                 return false;
             });
@@ -1465,6 +1566,7 @@ var data = [{"auction_id":"124575516938","price_realized":"23150","grader":"PSA"
 
         if (Object.keys(tmp).length>1 && Object.keys(gg).length>7 && data.length>1){
             $('#modal-graders').html(" <select id='graders' name='graders'><option value='All'>All Graders</option></select>");
+            $('#modal-types').html(" <select id='auction-types' name='auction-types'><option value='All'>All Types</option><option value='Chinese'>Auction</option><option value='FixedPriceItem'>Fixed Price</option></select>");
         }
 
         var first = 1;
@@ -1502,6 +1604,77 @@ var data = [{"auction_id":"124575516938","price_realized":"23150","grader":"PSA"
         }
         var fdata;
 
+
+        // auction filter
+        
+        $('#modal-types').change(function(e){
+            e.preventDefault();
+
+            fdata = jQuery.extend(true, {}, data);
+console.log(fdata)
+
+            jQuery('#listing-box').html("");
+
+            for (i in fdata){
+                if ($( "#auction-types" ).val()=='All') {
+                    continue;
+                }
+                if (fdata[i] === undefined) {
+                    delete fdata[i];
+                }
+
+                if ($( "#auction-types" ).val()) {
+                    if ($( "#auction-types" ).val()=='All') {
+
+                        continue;
+                    }
+                    if (fdata[i].listing_type != $( "#auction-types" ).val()) {
+                        delete fdata[i];
+                    }
+                }
+            }
+
+            if (Object.keys(fdata).length == 0) {
+                jQuery('#listing-box').html("<div style='text-align:center;'>No Auctions available</div>");
+            } else {
+                var per_page = 12;
+                var row_items = [];
+                var m = 0;
+                var grade_values = [];
+                for (i in fdata){
+                    if (fdata[i] === undefined){
+                        continue;
+                    }
+
+                    if (fdata[i].grade) {
+                        grade_values[m] = fdata[i].grade;
+                    }
+
+                    var page_num = Math.ceil((m+1)/per_page);
+                    var new_item_html = getHTML(fdata[i]);
+                    if (row_items.length < 12) {
+                        row_items.push(new_item_html);
+                    }
+
+                    if(Object.keys(fdata).length == 2) var colStyle = 2;
+                    else if(Object.keys(fdata).length == 3) var colStyle = 3;
+                    else var colStyle = 1;
+
+                    $('#listings').removeClass('col-style-1 col-style-2 col-style-3').addClass('col-style-'+ colStyle);
+                    if (row_items.length == 12 || m == Object.keys(fdata).length - 1) {
+                        jQuery('#listing-box').append('<div class="row live-listing-row live-listing-row-'+page_num+'" style="display:none;">'+row_items.join('')+'</div>');
+                        row_items = [];
+                    }
+                    m++;
+
+                }
+
+                renderPaging(m, per_page);
+            }
+        });
+        
+        // auction filter
+        
         $('#modal-graders').change(function(e){
             e.preventDefault();
 
@@ -1718,7 +1891,12 @@ console.log(fdata)
         }
         // });
 
-    });
+        // data.forEach(e => {
+        //     console.log(e);
+            
+        // });
+
+});
 
 });
 
