@@ -1395,7 +1395,7 @@ jQuery('#add-wantlist-form').yiiActiveForm([], []);
                     prevButton = '';
                 }
                 let displayAttr = (i>4 && i < page_num-1) ? 'd-none' : '',
-                threeDots = (i === page_num-2) ? '<span class="mx-2">...</span>' : '';
+                threeDots = ((i === page_num-2) && page_num>5) ? '<span class="mx-2">...</span>' : '';
                 // render page link
                 var active_class = current_page == (i+1) || (!current_page && i==0) ? ' active' : '';
                 var btn = prevButton + '<a href="103492.html#" class="' + displayAttr + ' btn btn-secondary paginator page'+ (i+1) + active_class +'" data-page="'+ (i+1) +'">'+ (i+1) +'</a>'+threeDots+nextButton;
@@ -1602,7 +1602,9 @@ var data = [{"auction_id":"124575516938","price_realized":"23150","grader":"PSA"
                 }
             }
         }
-        var fdata;
+        var fdata,
+        gdata,
+        hdata;
 
 
         // auction filter
@@ -1610,17 +1612,24 @@ var data = [{"auction_id":"124575516938","price_realized":"23150","grader":"PSA"
         $('#modal-types').change(function(e){
             e.preventDefault();
 
-            fdata = jQuery.extend(true, {}, data);
-console.log(fdata)
-
+            if(gdata){
+                hdata = jQuery.extend(true, {}, gdata);
+            }
+            else if(fdata){
+                hdata = jQuery.extend(true, {}, fdata);
+            }
+            else {
+                hdata = jQuery.extend(true, {}, data);
+            }
+                
             jQuery('#listing-box').html("");
 
-            for (i in fdata){
+            for (i in hdata){
                 if ($( "#auction-types" ).val()=='All') {
                     continue;
                 }
-                if (fdata[i] === undefined) {
-                    delete fdata[i];
+                if (hdata[i] === undefined) {
+                    delete hdata[i];
                 }
 
                 if ($( "#auction-types" ).val()) {
@@ -1628,40 +1637,40 @@ console.log(fdata)
 
                         continue;
                     }
-                    if (fdata[i].listing_type != $( "#auction-types" ).val()) {
-                        delete fdata[i];
+                    if (hdata[i].listing_type != $( "#auction-types" ).val()) {
+                        delete hdata[i];
                     }
                 }
             }
 
-            if (Object.keys(fdata).length == 0) {
+            if (Object.keys(hdata).length == 0) {
                 jQuery('#listing-box').html("<div style='text-align:center;'>No Auctions available</div>");
             } else {
                 var per_page = 12;
                 var row_items = [];
                 var m = 0;
                 var grade_values = [];
-                for (i in fdata){
-                    if (fdata[i] === undefined){
+                for (i in hdata){
+                    if (hdata[i] === undefined){
                         continue;
                     }
 
-                    if (fdata[i].grade) {
-                        grade_values[m] = fdata[i].grade;
+                    if (hdata[i].grade) {
+                        grade_values[m] = hdata[i].grade;
                     }
 
                     var page_num = Math.ceil((m+1)/per_page);
-                    var new_item_html = getHTML(fdata[i]);
+                    var new_item_html = getHTML(hdata[i]);
                     if (row_items.length < 12) {
                         row_items.push(new_item_html);
                     }
 
-                    if(Object.keys(fdata).length == 2) var colStyle = 2;
-                    else if(Object.keys(fdata).length == 3) var colStyle = 3;
+                    if(Object.keys(hdata).length == 2) var colStyle = 2;
+                    else if(Object.keys(hdata).length == 3) var colStyle = 3;
                     else var colStyle = 1;
 
                     $('#listings').removeClass('col-style-1 col-style-2 col-style-3').addClass('col-style-'+ colStyle);
-                    if (row_items.length == 12 || m == Object.keys(fdata).length - 1) {
+                    if (row_items.length == 12 || m == Object.keys(hdata).length - 1) {
                         jQuery('#listing-box').append('<div class="row live-listing-row live-listing-row-'+page_num+'" style="display:none;">'+row_items.join('')+'</div>');
                         row_items = [];
                     }
@@ -1790,7 +1799,7 @@ console.log(fdata)
         $('#modal-grades').change(function(e){
             e.preventDefault();
 
-            var gdata = jQuery.extend(true, {}, fdata);
+            gdata = jQuery.extend(true, {}, fdata);
 
             jQuery('#listing-box').html("");
             for (i in gdata){
